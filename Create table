@@ -1,0 +1,34 @@
+#create table first the SQL code and then the python code from scratch
+"""
+CREATE TABLE users (
+user_id INT NOT NULL,
+name VARCHAR(200),
+num_friends INT);
+
+INSERT INTO users (user_id, name, num_friends) VALUES (0, 'Hero', 0);        
+"""
+
+class Table:
+    def __init__(self,columns):
+        self.columns=columns
+        self.rows=[]
+        
+    def __repr__(self):
+        "representation of the table columns and rows"
+        return str(self.columns) +"\n" +"\n".join(map(str,self.rows))
+    
+    def insert(self,row_values):
+        if len(row_values)!=len(self.columns):
+            raise TypeError("wrong number of elements")
+        else:
+            row_dict=dict(zip(self.columns,row_values))
+            self.rows.append(row_dict)
+            
+users=Table(['user_id','user_name','num_friends'])
+users.insert([0,'Dan',0])
+users.insert([1,'Joe',3])
+users.insert([2,'Maria',5])
+users.insert([3,'Helen',7])
+users
+
+#update
