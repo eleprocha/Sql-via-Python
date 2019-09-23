@@ -1,0 +1,11 @@
+#update
+def update(self,updates,predicate):
+    for row in self.rows:
+        if predicate(row):
+            for column, new_value in updates.iteritems():
+                row[columns]=new_value
+                
+
+
+users.update({'num_friends': 4},
+             lambda row: row['user_id']== 1)
