@@ -1,4 +1,10 @@
-#update
+#update first in sql code then python
+""""
+UPDATE users
+SET num_friends = 3
+WHERE user_id = 1;
+""""
+
 def update(self,updates,predicate):
     for row in self.rows:
         if predicate(row):
